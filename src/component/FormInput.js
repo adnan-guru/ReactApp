@@ -33,6 +33,7 @@ const FormInput = (props) => {
       <label>{label}</label>
       <input
         {...inputProps}
+        
         onChange={onChange}
         onBlur={handleFocus}
         focused={focused.toString()}

@@ -13,7 +13,7 @@ const App = () => {
     email: "",
     age: "",
     favoriteColor: "",
-    gender: "",
+    gender: "MALE",
     notification: false,
   });
 
@@ -24,7 +24,7 @@ const App = () => {
     email: "",
     age: "",
     favoriteColor: "",
-    gender: "",
+    gender: "MALE",
     notification: false,
   });
   const handleSubmit = (e) => {
@@ -38,7 +38,7 @@ const App = () => {
       email: "",
       age: "",
       favoriteColor: "",
-      gender: "",
+      gender: "MALE",
       notification: false,
     });
   };
@@ -50,7 +50,7 @@ const App = () => {
       email: "",
       age: "",
       favoriteColor: "",
-      gender: "",
+      gender: "MALE",
       notification: false,
     });
   };
@@ -134,6 +134,7 @@ const App = () => {
               type="radio"
               name="gender"
               label="Male"
+              defaultChecked={true}
             />
             <FormInput
               key={"femalegender"}
@@ -142,6 +143,7 @@ const App = () => {
               type="radio"
               name="gender"
               label="Female"
+              marginLeft="15px"
             />
           </div>
           <FormInput
