@@ -14,7 +14,7 @@ const App = () => {
     age: "",
     favoriteColor: "",
     gender: "",
-    notification: "false",
+    notification: false,
   });
 
   const [printForm, setPrintForm] = useState(false);
@@ -151,6 +151,7 @@ const App = () => {
             type="checkbox"
             name="notification"
             label="Receive Notification"
+            checked={values["notification"]}
           />
 
           <div
