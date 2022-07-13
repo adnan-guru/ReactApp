@@ -3,7 +3,15 @@ import "./formInput.css";
 
 const FormInput = (props) => {
   const [focused, setFocused] = useState(false);
-  const { label, errorMessage, onChange, id, style, ...inputProps } = props;
+  const {
+    label,
+    errorMessage,
+    onChange,
+    id,
+    style,
+    marginLeft,
+    ...inputProps
+  } = props;
 
   const handleFocus = (e) => {
     setFocused(true);
@@ -19,7 +27,7 @@ const FormInput = (props) => {
             : inputProps.type === "checkbox"
             ? "row"
             : "column",
-        marginLeft: inputProps.type === "radio" && "15px",
+        marginLeft: marginLeft,
       }}
     >
       <label>{label}</label>
@@ -38,7 +46,6 @@ const FormInput = (props) => {
               : "10px",
           marginBottom: "20px",
           borderRadius: "5px",
-          border: "1px solid gray",
         }}
       />
       <span>{errorMessage}</span>

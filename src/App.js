@@ -78,7 +78,7 @@ const App = () => {
             name="name"
             label="Name"
             placeholder="Name"
-            errorMessage="name must be start with capital lettet and without number or special character"
+            errorMessage="name must be start with capital letter and without number or special character"
             pattern="[A-Z][a-z]+"
           />
           <FormInput
@@ -89,7 +89,7 @@ const App = () => {
             name="surNname"
             label="Surname"
             placeholder="Surname"
-            errorMessage="surname must be start with capital lettet and without number or special character"
+            errorMessage="surname must be start with capital letter and without number or special character"
             pattern="[A-Z][a-z]+"
           />
           <FormInput
@@ -193,8 +193,12 @@ const App = () => {
         </form>
       </Card>
       {printForm && (
-        <Card bgColor="red" textColor="white">
-          <>
+        <Card bgColor="#00468B" textColor="white">
+          <div
+            style={{
+              color: "white",
+            }}
+          >
             Name: {printValues["name"]}
             <br />
             SurName: {printValues["surNname"]}
@@ -206,7 +210,7 @@ const App = () => {
             Gender: {printValues["gender"]}
             <br />
             Notification: {printValues["notification"]}
-          </>
+          </div>
         </Card>
       )}
     </>

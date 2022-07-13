@@ -1,9 +1,11 @@
 
 
-
+input{
+    border: 1px solid gray;
+}
 label{
     font-size: 14px;
-    color: grbay;
+    color: black;
     font-weight: bold;
 }
 
