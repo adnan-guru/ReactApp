@@ -33,7 +33,7 @@ const App = () => {
     setprintValues(values);
     setPrintForm(true);
     console.log(values);
-    setradioValue(false)
+    setradioValue(false);
     setValues({
       name: "",
       surNname: "",
@@ -80,8 +80,8 @@ const App = () => {
             name="name"
             label="Name"
             placeholder="Name"
-            errorMessage="name must be start with capital letter and without number or special character"
-            pattern="[A-Z][a-z]+"
+            errorMessage="name must be without number or special character"
+            pattern="[A-Za-z' ']+"
           />
           <FormInput
             key={"surNname"}
@@ -91,8 +91,8 @@ const App = () => {
             name="surNname"
             label="Surname"
             placeholder="Surname"
-            errorMessage="surname must be start with capital letter and without number or special character"
-            pattern="[A-Z][a-z]+"
+            errorMessage="surname must be without number or special character"
+            pattern="[A-Za-z' ']+"
           />
           <FormInput
             key={"email"}
@@ -114,7 +114,7 @@ const App = () => {
             label="Age"
             placeholder="Age"
             errorMessage="age must be greater than 0"
-            pattern="^[1-9]\d*$"
+            pattern="^[1-9][0-9' ']*$"
           />
           <FormInput
             key={"favoriteColor"}
@@ -149,7 +149,6 @@ const App = () => {
               marginLeft="15px"
               defaultChecked={false}
               checked={radioValue}
-
             />
           </div>
           <FormInput
