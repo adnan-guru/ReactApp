@@ -125,7 +125,7 @@ const App = () => {
             label="Favorite Color"
             placeholder="Favorite Color"
             errorMessage="must be a valid color name"
-            pattern="[A-Za-z]+"
+            pattern="[A-Za-z' ']+"
           />
 
           <div style={{ display: "flex" }}>
