@@ -18,6 +18,7 @@ const App = () => {
   });
 
   const [printForm, setPrintForm] = useState(false);
+  const [radioValue, setradioValue] = useState();
   const [printValues, setprintValues] = useState({
     name: "",
     surNname: "",
@@ -32,6 +33,7 @@ const App = () => {
     setprintValues(values);
     setPrintForm(true);
     console.log(values);
+    setradioValue(false)
     setValues({
       name: "",
       surNname: "",
@@ -134,7 +136,8 @@ const App = () => {
               type="radio"
               name="gender"
               label="Male"
-              defaultChecked={true}
+              defaultChecked={false}
+              checked={radioValue}
             />
             <FormInput
               key={"Femalegender"}
@@ -144,6 +147,9 @@ const App = () => {
               name="gender"
               label="Female"
               marginLeft="15px"
+              defaultChecked={false}
+              checked={radioValue}
+
             />
           </div>
           <FormInput
