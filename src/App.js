@@ -13,7 +13,7 @@ const App = () => {
     email: "",
     age: "",
     favoriteColor: "",
-    gender: "Male",
+    gender: "",
     notification: false,
   });
 
@@ -25,24 +25,26 @@ const App = () => {
     email: "",
     age: "",
     favoriteColor: "",
-    gender: "Male",
+    gender: "",
     notification: false,
   });
   const handleSubmit = (e) => {
     e.preventDefault();
+
     setprintValues(values);
     setPrintForm(true);
     console.log(values);
-    setradioValue(false);
+
     setValues({
       name: "",
       surNname: "",
       email: "",
       age: "",
       favoriteColor: "",
-      gender: "Male",
+      gender: "",
       notification: false,
     });
+    e.target.reset();
   };
   const cancleButton = (e) => {
     e.preventDefault();
@@ -114,7 +116,7 @@ const App = () => {
             label="Age"
             placeholder="Age"
             errorMessage="age must be greater than 0"
-            pattern="^[1-9][0-9' ']*$"
+            pattern="^[' '1-9][0-9' ']*$"
           />
           <FormInput
             key={"favoriteColor"}
@@ -137,7 +139,6 @@ const App = () => {
               name="gender"
               label="Male"
               defaultChecked={false}
-              checked={radioValue}
             />
             <FormInput
               key={"Femalegender"}
@@ -148,7 +149,6 @@ const App = () => {
               label="Female"
               marginLeft="15px"
               defaultChecked={false}
-              checked={radioValue}
             />
           </div>
           <FormInput
