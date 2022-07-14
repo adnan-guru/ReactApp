@@ -27,7 +27,7 @@ const FormInput = (props) => {
             : inputProps.type === "checkbox"
             ? "row"
             : "column",
-        marginLeft: marginLeft,
+            marginLeft: marginLeft,
       }}
     >
       <label>{label}</label>

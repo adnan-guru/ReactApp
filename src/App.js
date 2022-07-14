@@ -1,12 +1,14 @@
 import { useState } from "react";
-import "./app.css";
+import "./App.css";
 import { Card } from "./component/Card";
 import FormInput from "./component/FormInput";
 import Heading from "./component/Heading";
 import SubHeading from "./component/SubHeading";
 import MyButton from "./component/MyButton";
+import { getFormFields } from "./constants/formconstant";
 
 const App = () => {
+  const formFields = getFormFields("loginForm");
   const [values, setValues] = useState({
     name: "",
     surNname: "",
@@ -18,7 +20,6 @@ const App = () => {
   });
 
   const [printForm, setPrintForm] = useState(false);
-  const [radioValue, setradioValue] = useState();
   const [printValues, setprintValues] = useState({
     name: "",
     surNname: "",
@@ -64,7 +65,29 @@ const App = () => {
     setValues({ ...values, [e.target.name]: e.target.value });
     console.log(values);
   };
-
+  const getInput = (field) => {
+    return (
+      <FormInput
+        key={field?.key}
+        value={values[field?.name]}
+        onChange={onChange}
+        type={field?.type}
+        name={field?.name}
+        label={field?.label}
+        placeholder={field?.placeholder}
+        errorMessage={field?.errorMessage}
+        pattern={field?.pattern}
+      />
+    );
+  };
+  const getFormField = (field) => {
+    switch (field?.type) {
+      case "text":
+      case "email":
+        return getInput(field);
+      
+    }
+  };
   return (
     <>
       <Heading text="Main Heading" />
@@ -74,62 +97,9 @@ const App = () => {
         <form onSubmit={handleSubmit}>
           <Heading text="Form Heading" />
           <SubHeading text="Form Sub Heading" />
-          <FormInput
-            key={"name"}
-            value={values["name"]}
-            onChange={onChange}
-            type="text"
-            name="name"
-            label="Name"
-            placeholder="Name"
-            errorMessage="name must be without number or special character"
-            pattern="[A-Za-z' ']+"
-          />
-          <FormInput
-            key={"surNname"}
-            value={values["surNname"]}
-            onChange={onChange}
-            type="text"
-            name="surNname"
-            label="Surname"
-            placeholder="Surname"
-            errorMessage="surname must be without number or special character"
-            pattern="[A-Za-z' ']+"
-          />
-          <FormInput
-            key={"email"}
-            value={values["email"]}
-            onChange={onChange}
-            type="email"
-            name="email"
-            label="Email"
-            placeholder="abc@gmail.com"
-            errorMessage="It should be a valid email address!"
-            pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
-          />
-          <FormInput
-            key={"age"}
-            value={values["age"]}
-            onChange={onChange}
-            type="text"
-            name="age"
-            label="Age"
-            placeholder="Age"
-            errorMessage="age must be greater than 0"
-            pattern="^[' '1-9][0-9' ']*$"
-          />
-          <FormInput
-            key={"favoriteColor"}
-            value={values["favoriteColor"]}
-            onChange={onChange}
-            type="text"
-            name="favoriteColor"
-            label="Favorite Color"
-            placeholder="Favorite Color"
-            errorMessage="must be a valid color name"
-            pattern="[A-Za-z' ']+"
-          />
-
+          {formFields.map((field) => {
+            return getFormField(field);
+          })}
           <div style={{ display: "flex" }}>
             <FormInput
               key={"gender"}
