@@ -166,8 +166,8 @@ const App = () => {
           >
             <MyButton
               text="Submit"
-              bgColor="green"
-              textColor="#cfbd1f"
+              bgColor="#42B549"
+              textColor="#ffea03"
               padding="10px"
               borderRadius="5px"
               type="submit"
@@ -189,7 +189,7 @@ const App = () => {
               textColor="white"
               padding="10px"
               borderRadius="5px"
-              marginLeft="10px"
+              marginLeft="20px"
               onClick={cancleButton}
             />
           </div>
